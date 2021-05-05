@@ -6,6 +6,7 @@ export default class Todos extends BaseSchema {
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
+      table.integer('userId').unsigned()
       table.string('title')
       table.boolean('is_completed')
       table.timestamps(true)

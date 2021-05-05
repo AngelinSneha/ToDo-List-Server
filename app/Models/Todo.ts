@@ -7,6 +7,9 @@ export default class Todo extends BaseModel {
   public id: number
 
   @column()
+  public userId: number
+
+  @column()
   public title: String
 
   @column()
