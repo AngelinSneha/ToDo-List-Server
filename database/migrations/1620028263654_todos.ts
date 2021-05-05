@@ -8,6 +8,7 @@ export default class Todos extends BaseSchema {
       table.increments('id')
       table.integer('userId').unsigned()
       table.string('title')
+      table.text('body')
       table.boolean('is_completed')
       table.timestamps(true)
     })

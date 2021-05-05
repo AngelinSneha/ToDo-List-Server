@@ -13,6 +13,9 @@ export default class Todo extends BaseModel {
   public title: String
 
   @column()
+  public body: String
+
+  @column()
   public is_completed: Boolean
 
   @belongsTo(() => User)
