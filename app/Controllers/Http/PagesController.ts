@@ -2,6 +2,6 @@
 
 export default class PagesController {
     public home () {
-        return {Yo:"All better?"}
+        return {HOME:"Home Page"}
     }
 }

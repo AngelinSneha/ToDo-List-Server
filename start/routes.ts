@@ -25,18 +25,16 @@ Route.get('/', 'PagesController.home')
 Route.group(() => {
 
   Route.group(() => {
-    Route.get('/todo', 'TodosController.index')
-    Route.post('/todo', 'TodosController.store')
-    Route.patch('/todo/:id', 'TodosController.update')
     Route.post('/logout', 'AuthController.destroy')
     Route.post('/user', 'AuthController.user')
+    Route.get('/todo', 'TodosController.index')
+    Route.post('/todo', 'TodosController.store')
+    Route.post('/tododel', 'TodosController.delete')
+    Route.post('/todoupdate', 'TodosController.update')
+    Route.post('/todoundoupdate', 'TodosController.undoupdate')
   }).middleware('auth')
 
   Route.post('/register', 'AuthController.register')
   Route.post('/login', 'AuthController.login')
 
 }).prefix('api')
-
-// Route.get('/about/:name', async ({ params }) => {
-//   return `You can do it, ${params.name}.`
-// })
