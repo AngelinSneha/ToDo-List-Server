@@ -29,6 +29,7 @@ Route.group(() => {
     Route.post('/todo', 'TodosController.store')
     Route.patch('/todo/:id', 'TodosController.update')
     Route.post('/logout', 'AuthController.destroy')
+    Route.post('/user', 'AuthController.user')
   }).middleware('auth')
 
   Route.post('/register', 'AuthController.register')

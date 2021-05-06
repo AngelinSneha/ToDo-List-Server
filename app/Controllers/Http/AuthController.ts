@@ -35,4 +35,8 @@ export default class AuthController {
         await auth.logout()
         return response.send('logout success');
     }
+    public async user ({request}:HttpContextContract) {
+        const user = await User.findBy('email', request.input('email'));
+        return user
+    }
 }

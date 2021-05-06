@@ -5,11 +5,11 @@ import Todo from "App/Models/Todo";
 export default class TodosController {
     public async index () {
         // const todos = await Todo.all()
-        const users = await Database.query().select('*').from('todos')
-        return users
+        const list = await Database.query().select('*').from('todos')
+        return list
     }
-    public async store ({request, response}:HttpContextContract) {
-        Todo.create({title:request.input('title'), is_completed:false})
+    public async store ({request, response, auth}:HttpContextContract) {
+        await auth.user?.related('todos').create({title:request.input('title'),body:request.input('body'), is_completed:false})
         return response.status(201).json({'created': true})
     }
     public async update ({request, params}:HttpContextContract) {
